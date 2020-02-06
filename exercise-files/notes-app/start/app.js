@@ -1,3 +1,3 @@
-const name = require('./utils.js');
+import name from './utils.js';
 
 console.log(name);
