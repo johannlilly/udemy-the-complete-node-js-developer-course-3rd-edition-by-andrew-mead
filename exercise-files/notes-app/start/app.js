@@ -7,4 +7,5 @@ console.log(msg);
 
 console.log(validator.isURL('https://github.com'));
 
-console.log(chalk.green('Success!'));
+const greenMsg = chalk.blue.inverse.bold('Success');
+console.log(greenMsg);
