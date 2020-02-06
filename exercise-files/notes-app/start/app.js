@@ -1,5 +1,3 @@
-import './utils.js';
-
-const name = 'Ash';
+const name = require('./utils.js');
 
 console.log(name);
