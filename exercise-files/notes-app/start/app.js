@@ -1,4 +1,4 @@
-require('./utils.js');
+import './utils.js';
 
 const name = 'Ash';
 
