@@ -10,8 +10,25 @@ yargs.command({
   // options object to customize how the command will work
   command: 'add',
   describe: 'Add a new note',
-  handler: function () { // runs upon calling command
-    console.log('Adding a new note!');
+  builder: {
+    // set new option on builder object
+    title: { // define with flag `--title=`
+      // custsomize how option works, access with handler
+      describe: 'Note title',
+      demandOption: true, // is required
+      type: 'string'
+    },
+    body: {
+      describe: 'Note content',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler: function (argv) { // runs upon calling command
+    console.log(chalk.bgBlue('\nTitle:\n'));
+    console.log(argv.title);
+    console.log(chalk.bgMagenta('\nBody:\n'));
+    console.log(argv.body + '\n');
   }
 });
 
@@ -19,8 +36,8 @@ yargs.command({
 yargs.command({
   command: 'remove',
   describe: 'Remove a note',
-  handler: function() {
-    console.log('Removing the note')
+  handler: function(argv) {
+    
   }
 });
 
@@ -42,4 +59,4 @@ yargs.command({
   }
 });
 
-console.log(yargs.argv);
+yargs.parse();
