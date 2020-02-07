@@ -26,21 +26,10 @@ const addNote = function (title, body) {
 
 const removeNote = function(title) {
   const notes = loadNotes();
-  const note = notes.filter(function(note) {
-    return note.title === title;
+  const notesToKeep = notes.filter(function(note) {
+    return note.title !== title;
   });
-
-  if (note.length !== 0) {
-    notes.pop({
-      title: title
-    });
-
-    saveNotes(notes);
-    console.log("Note removed!");
-  } else {
-    console.log("No note with that name exists!");
-  }
-}
+  saveNotes(notesToKeep);
 
 const saveNotes = function(notes) {
   const dataJSON = JSON.stringify(notes);
