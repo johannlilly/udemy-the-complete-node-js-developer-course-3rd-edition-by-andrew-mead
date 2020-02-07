@@ -30,6 +30,7 @@ const removeNote = function(title) {
     return note.title !== title;
   });
   saveNotes(notesToKeep);
+}
 
 const saveNotes = function(notes) {
   const dataJSON = JSON.stringify(notes);
