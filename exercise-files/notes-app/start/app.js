@@ -25,7 +25,7 @@ yargs.command({
     }
   },
   handler: function (argv) { // runs upon calling command
-    note.addNote(argv.title, argv.body);
+    notes.addNote(argv.title, argv.body);
   }
 });
 
