@@ -6,17 +6,40 @@ const getNotes = function() {
 
 const addNote = function (title, body) {
   const notes = loadNotes();
-
-  // load data
-  notes.push({
-    title: title,
-    body: body
+  const duplicateNotes = notes.filter(function(note) {
+    return note.title === title;
   });
 
-  // save data
-  saveNotes(notes);
+  if (duplicateNotes.length === 0) {
+    notes.push({
+      title: title,
+      body: body
+    });
 
-  console.log(notes);
+    saveNotes(notes);
+    console.log("New note added!");
+  } else {
+    console.log("Note title taken!");
+  }
+
+}
+
+const removeNote = function(title) {
+  const notes = loadNotes();
+  const note = notes.filter(function(note) {
+    return note.title === title;
+  });
+
+  if (note.length !== 0) {
+    notes.pop({
+      title: title
+    });
+
+    saveNotes(notes);
+    console.log("Note removed!");
+  } else {
+    console.log("No note with that name exists!");
+  }
 }
 
 const saveNotes = function(notes) {
@@ -36,5 +59,6 @@ const loadNotes = function() {
 
 module.exports = {
   getNotes: getNotes,
-  addNote: addNote
+  addNote: addNote,
+  removeNote: removeNote
 };
