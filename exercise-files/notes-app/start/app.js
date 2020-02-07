@@ -13,7 +13,7 @@ yargs.command({
   builder: {
     // set new option on builder object
     title: { // define with flag `--title=`
-      // custsomize how option works, access with handler
+      // customize how option works, access with handler
       describe: 'Note title',
       demandOption: true, // is required
       type: 'string'
